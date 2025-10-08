@@ -323,6 +323,7 @@ C:\Users\User\Desktop\klaud\CloudApp\ChatService\obj\Debug\net7.0\win7-x64\PubTm
 C:\Users\User\Desktop\klaud\CloudApp\ChatService\obj\Debug\net7.0\win7-x64\PubTmp\Out\mscorrc.dll
 C:\Users\User\Desktop\klaud\CloudApp\ChatService\obj\Debug\net7.0\win7-x64\PubTmp\Out\msquic.dll
 C:\Users\User\Desktop\klaud\CloudApp\ChatService\obj\Debug\net7.0\win7-x64\PubTmp\Out\aspnetcorev2_inprocess.dll
+C:\Users\User\Desktop\klaud\CloudApp\ChatService\obj\Debug\net7.0\win7-x64\PubTmp\Out\Microsoft.Data.Sqlite.dll
 C:\Users\User\Desktop\klaud\CloudApp\ChatService\obj\Debug\net7.0\win7-x64\PubTmp\Out\Microsoft.ServiceFabric.Internal.Strings.dll
 C:\Users\User\Desktop\klaud\CloudApp\ChatService\obj\Debug\net7.0\win7-x64\PubTmp\Out\Microsoft.ServiceFabric.Internal.dll
 C:\Users\User\Desktop\klaud\CloudApp\ChatService\obj\Debug\net7.0\win7-x64\PubTmp\Out\Microsoft.ServiceFabric.Preview.dll
@@ -338,3 +339,7 @@ C:\Users\User\Desktop\klaud\CloudApp\ChatService\obj\Debug\net7.0\win7-x64\PubTm
 C:\Users\User\Desktop\klaud\CloudApp\ChatService\obj\Debug\net7.0\win7-x64\PubTmp\Out\Microsoft.ServiceFabric.Data.Interfaces.dll
 C:\Users\User\Desktop\klaud\CloudApp\ChatService\obj\Debug\net7.0\win7-x64\PubTmp\Out\Microsoft.ServiceFabric.Diagnostics.dll
 C:\Users\User\Desktop\klaud\CloudApp\ChatService\obj\Debug\net7.0\win7-x64\PubTmp\Out\Microsoft.ServiceFabric.Services.dll
+C:\Users\User\Desktop\klaud\CloudApp\ChatService\obj\Debug\net7.0\win7-x64\PubTmp\Out\SQLitePCLRaw.batteries_v2.dll
+C:\Users\User\Desktop\klaud\CloudApp\ChatService\obj\Debug\net7.0\win7-x64\PubTmp\Out\SQLitePCLRaw.core.dll
+C:\Users\User\Desktop\klaud\CloudApp\ChatService\obj\Debug\net7.0\win7-x64\PubTmp\Out\SQLitePCLRaw.provider.e_sqlite3.dll
+C:\Users\User\Desktop\klaud\CloudApp\ChatService\obj\Debug\net7.0\win7-x64\PubTmp\Out\e_sqlite3.dll

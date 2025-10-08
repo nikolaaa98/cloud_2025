@@ -11,22 +11,17 @@ using Microsoft.ServiceFabric.Services.Communication.AspNetCore;
 using Microsoft.ServiceFabric.Services.Communication.Runtime;
 using Microsoft.ServiceFabric.Services.Runtime;
 using Microsoft.ServiceFabric.Data;
+using GatewayService.Services;
 
 namespace GatewayService
 {
-    /// <summary>
-    /// The FabricRuntime creates an instance of this class for each service type instance.
-    /// </summary>
+
     internal sealed class GatewayService : StatelessService
     {
         public GatewayService(StatelessServiceContext context)
             : base(context)
         { }
 
-        /// <summary>
-        /// Optional override to create listeners (like tcp, http) for this service instance.
-        /// </summary>
-        /// <returns>The collection of listeners.</returns>
         protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
         {
             return new ServiceInstanceListener[]
@@ -39,16 +34,19 @@ namespace GatewayService
                         var builder = WebApplication.CreateBuilder();
 
                         builder.Services.AddSingleton<StatelessServiceContext>(serviceContext);
+                        builder.Services.AddHttpClient<HttpForwardingService>();
+                        builder.Services.AddControllers();
+
                         builder.WebHost
-                                    .UseKestrel()
-                                    .UseContentRoot(Directory.GetCurrentDirectory())
-                                    .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.None)
-                                    .UseUrls(url);
+                               .UseKestrel()
+                               .UseContentRoot(Directory.GetCurrentDirectory())
+                               .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.None)
+                               .UseUrls(url);
+
                         var app = builder.Build();
-                        
-                        app.MapGet("/", () => "Hello World!");
-                        
-                        
+
+                        app.MapControllers(); 
+
                         return app;
 
                     }))
