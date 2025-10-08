@@ -1,58 +1,47 @@
 using System;
 using System.Collections.Generic;
-using System.Fabric;
 using System.IO;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.ServiceFabric.Services.Communication.AspNetCore;
 using Microsoft.ServiceFabric.Services.Communication.Runtime;
 using Microsoft.ServiceFabric.Services.Runtime;
-using Microsoft.ServiceFabric.Data;
+using ChatService.Services;
+using Microsoft.Extensions.DependencyInjection;
+using System.Fabric;
 
 namespace ChatService
 {
-    /// <summary>
-    /// The FabricRuntime creates an instance of this class for each service type instance.
-    /// </summary>
     internal sealed class ChatService : StatefulService
     {
-        public ChatService(StatefulServiceContext context)
-            : base(context)
-        { }
+        public ChatService(StatefulServiceContext context) : base(context) { }
 
-        /// <summary>
-        /// Optional override to create listeners (like tcp, http) for this service instance.
-        /// </summary>
-        /// <returns>The collection of listeners.</returns>
         protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
         {
             return new ServiceReplicaListener[]
             {
-                new ServiceReplicaListener(serviceContext =>
-                    new KestrelCommunicationListener(serviceContext, (url, listener) =>
+                new ServiceReplicaListener(context =>
+                    new KestrelCommunicationListener(context, "ServiceEndpoint", (url, listener) =>
                     {
-                        ServiceEventSource.Current.ServiceMessage(serviceContext, $"Starting Kestrel on {url}");
+                        ServiceEventSource.Current.ServiceMessage(context, $"Starting Kestrel on {url}");
 
                         var builder = WebApplication.CreateBuilder();
+                        builder.Services.AddSingleton<StatefulServiceContext>(context);
+                        builder.Services.AddSingleton<ChatDatabaseService>();
+                        builder.Services.AddControllers();
 
-                        builder.Services
-                                    .AddSingleton<StatefulServiceContext>(serviceContext)
-                                    .AddSingleton<IReliableStateManager>(this.StateManager);
                         builder.WebHost
-                                    .UseKestrel()
-                                    .UseContentRoot(Directory.GetCurrentDirectory())
-                                    .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.UseUniqueServiceUrl)
-                                    .UseUrls(url);
-                        var app = builder.Build();
-                        
-                        app.MapGet("/", () => "Hello World!");
-                        
-                        
-                        return app;
+                               .UseKestrel()
+                               .UseContentRoot(Directory.GetCurrentDirectory())
+                               .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.None)
+                               .UseUrls(url);
 
+                        var app = builder.Build();
+
+                        app.MapControllers();
+                        app.MapGet("/", () => "ChatService is running!");
+
+                        return app;
                     }))
             };
         }

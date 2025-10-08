@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CloudApp UI</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>CloudApp</h1>
+
+    <section id="upload-section">
+        <h2>Upload Document</h2>
+        <input type="file" id="fileInput" />
+        <button onclick="uploadFile()">Upload</button>
+        <div id="uploadResult"></div>
+    </section>
+
+    <section id="chat-section">
+        <h2>Ask Chat</h2>
+        <input type="text" id="questionInput" placeholder="Type your question..." />
+        <button onclick="askChat()">Ask</button>
+        <div id="chatResult"></div>
+    </section>
+
+    <section id="history-section">
+        <h2>Chat History</h2>
+        <button onclick="getHistory()">Load History</button>
+        <ul id="historyList"></ul>
+    </section>
+
+    <script src="app.js"></script>
+</body>
+</html>
