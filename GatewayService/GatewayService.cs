@@ -2,20 +2,17 @@ using System;
 using System.Collections.Generic;
 using System.Fabric;
 using System.IO;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.ServiceFabric.Data;
 using Microsoft.ServiceFabric.Services.Communication.AspNetCore;
 using Microsoft.ServiceFabric.Services.Communication.Runtime;
 using Microsoft.ServiceFabric.Services.Runtime;
-using Microsoft.ServiceFabric.Data;
 using GatewayService.Services;
 
 namespace GatewayService
 {
-
     internal sealed class GatewayService : StatelessService
     {
         public GatewayService(StatelessServiceContext context)
@@ -24,7 +21,7 @@ namespace GatewayService
 
         protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
         {
-            return new ServiceInstanceListener[]
+            return new[]
             {
                 new ServiceInstanceListener(serviceContext =>
                     new KestrelCommunicationListener(serviceContext, "ServiceEndpoint", (url, listener) =>
@@ -33,10 +30,35 @@ namespace GatewayService
 
                         var builder = WebApplication.CreateBuilder();
 
+                        //  DODAJ CORS
+                        builder.Services.AddCors(options =>
+                        {
+                            options.AddPolicy("AllowFrontend",
+                                policy =>
+                                {
+                                    policy
+                                        .WithOrigins("http://localhost:5173")
+                                        .AllowAnyHeader()
+                                        .AllowAnyMethod()
+                                        .AllowCredentials();
+                                });
+                        });
+
+                        //  DODAJ POTREBNE SERVISE
                         builder.Services.AddSingleton<StatelessServiceContext>(serviceContext);
-                        builder.Services.AddHttpClient<HttpForwardingService>();
+                        
+                        //  DODAJ HTTP CLIENT (JEDAN PUT!)
+                        builder.Services.AddHttpClient<HttpForwardingService>(client =>
+                        {
+                            client.Timeout = TimeSpan.FromSeconds(30);
+                        });
+                        
+                        //  DODAJ GENERAL HTTP CLIENT ZA CHATCONTROLLER
+                        builder.Services.AddHttpClient(); // Ovo je za IHttpClientFactory
+
                         builder.Services.AddControllers();
 
+                        //  KONFIGURIŠI WEB HOST
                         builder.WebHost
                                .UseKestrel()
                                .UseContentRoot(Directory.GetCurrentDirectory())
@@ -45,10 +67,12 @@ namespace GatewayService
 
                         var app = builder.Build();
 
-                        app.MapControllers(); 
+                        //  MIDDLEWARE REDOSLED
+                        app.UseCors("AllowFrontend");   // CORS
+                        app.UseRouting();               // Routing
+                        app.MapControllers();           // Mapiraj sve API kontrolere
 
                         return app;
-
                     }))
             };
         }

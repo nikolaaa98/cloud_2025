@@ -40,6 +40,7 @@ namespace ChatService
 
                         app.MapControllers();
                         app.MapGet("/", () => "ChatService is running!");
+                        app.MapGet("/api/health", () => new { Status = "Healthy", Service = "ChatService", Timestamp = DateTime.UtcNow });
 
                         return app;
                     }))

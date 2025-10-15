@@ -4,6 +4,7 @@ C:\Users\User\Desktop\klaud\CloudApp\DocumentService\bin\Debug\net7.0\win7-x64\D
 C:\Users\User\Desktop\klaud\CloudApp\DocumentService\bin\Debug\net7.0\win7-x64\DocumentService.deps.json
 C:\Users\User\Desktop\klaud\CloudApp\DocumentService\bin\Debug\net7.0\win7-x64\DocumentService.runtimeconfig.json
 C:\Users\User\Desktop\klaud\CloudApp\DocumentService\bin\Debug\net7.0\win7-x64\DocumentService.pdb
+C:\Users\User\Desktop\klaud\CloudApp\DocumentService\bin\Debug\net7.0\win7-x64\Microsoft.Data.Sqlite.dll
 C:\Users\User\Desktop\klaud\CloudApp\DocumentService\bin\Debug\net7.0\win7-x64\Microsoft.ServiceFabric.Internal.Strings.dll
 C:\Users\User\Desktop\klaud\CloudApp\DocumentService\bin\Debug\net7.0\win7-x64\Microsoft.ServiceFabric.Internal.dll
 C:\Users\User\Desktop\klaud\CloudApp\DocumentService\bin\Debug\net7.0\win7-x64\Microsoft.ServiceFabric.Preview.dll
@@ -19,6 +20,10 @@ C:\Users\User\Desktop\klaud\CloudApp\DocumentService\bin\Debug\net7.0\win7-x64\M
 C:\Users\User\Desktop\klaud\CloudApp\DocumentService\bin\Debug\net7.0\win7-x64\Microsoft.ServiceFabric.Data.Interfaces.dll
 C:\Users\User\Desktop\klaud\CloudApp\DocumentService\bin\Debug\net7.0\win7-x64\Microsoft.ServiceFabric.Diagnostics.dll
 C:\Users\User\Desktop\klaud\CloudApp\DocumentService\bin\Debug\net7.0\win7-x64\Microsoft.ServiceFabric.Services.dll
+C:\Users\User\Desktop\klaud\CloudApp\DocumentService\bin\Debug\net7.0\win7-x64\SQLitePCLRaw.batteries_v2.dll
+C:\Users\User\Desktop\klaud\CloudApp\DocumentService\bin\Debug\net7.0\win7-x64\SQLitePCLRaw.core.dll
+C:\Users\User\Desktop\klaud\CloudApp\DocumentService\bin\Debug\net7.0\win7-x64\SQLitePCLRaw.provider.e_sqlite3.dll
+C:\Users\User\Desktop\klaud\CloudApp\DocumentService\bin\Debug\net7.0\win7-x64\e_sqlite3.dll
 C:\Users\User\Desktop\klaud\CloudApp\DocumentService\bin\Debug\net7.0\win7-x64\Microsoft.CSharp.dll
 C:\Users\User\Desktop\klaud\CloudApp\DocumentService\bin\Debug\net7.0\win7-x64\Microsoft.VisualBasic.Core.dll
 C:\Users\User\Desktop\klaud\CloudApp\DocumentService\bin\Debug\net7.0\win7-x64\Microsoft.VisualBasic.dll
@@ -357,8 +362,3 @@ C:\Users\User\Desktop\klaud\CloudApp\DocumentService\obj\Debug\net7.0\win7-x64\r
 C:\Users\User\Desktop\klaud\CloudApp\DocumentService\obj\Debug\net7.0\win7-x64\DocumentService.pdb
 C:\Users\User\Desktop\klaud\CloudApp\DocumentService\obj\Debug\net7.0\win7-x64\DocumentService.genruntimeconfig.cache
 C:\Users\User\Desktop\klaud\CloudApp\DocumentService\obj\Debug\net7.0\win7-x64\ref\DocumentService.dll
-C:\Users\User\Desktop\klaud\CloudApp\DocumentService\bin\Debug\net7.0\win7-x64\Microsoft.Data.Sqlite.dll
-C:\Users\User\Desktop\klaud\CloudApp\DocumentService\bin\Debug\net7.0\win7-x64\SQLitePCLRaw.batteries_v2.dll
-C:\Users\User\Desktop\klaud\CloudApp\DocumentService\bin\Debug\net7.0\win7-x64\SQLitePCLRaw.core.dll
-C:\Users\User\Desktop\klaud\CloudApp\DocumentService\bin\Debug\net7.0\win7-x64\SQLitePCLRaw.provider.e_sqlite3.dll
-C:\Users\User\Desktop\klaud\CloudApp\DocumentService\bin\Debug\net7.0\win7-x64\e_sqlite3.dll

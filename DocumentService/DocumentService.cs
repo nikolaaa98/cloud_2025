@@ -42,7 +42,10 @@ namespace DocumentService
                         var app = builder.Build();
 
                         app.MapControllers();
+
+                        // Dodaj health check endpoint
                         app.MapGet("/", () => "DocumentService is running!");
+                        app.MapGet("/api/health", () => new { Status = "Healthy", Service = "DocumentService", Timestamp = DateTime.UtcNow });
 
                         return app;
                     }))

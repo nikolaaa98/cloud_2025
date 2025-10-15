@@ -357,3 +357,8 @@ C:\Users\User\Desktop\klaud\CloudApp\GatewayService\obj\Debug\net7.0\win7-x64\re
 C:\Users\User\Desktop\klaud\CloudApp\GatewayService\obj\Debug\net7.0\win7-x64\GatewayService.pdb
 C:\Users\User\Desktop\klaud\CloudApp\GatewayService\obj\Debug\net7.0\win7-x64\GatewayService.genruntimeconfig.cache
 C:\Users\User\Desktop\klaud\CloudApp\GatewayService\obj\Debug\net7.0\win7-x64\ref\GatewayService.dll
+C:\Users\User\Desktop\klaud\CloudApp\GatewayService\bin\Debug\net7.0\win7-x64\Microsoft.Data.Sqlite.dll
+C:\Users\User\Desktop\klaud\CloudApp\GatewayService\bin\Debug\net7.0\win7-x64\SQLitePCLRaw.core.dll
+C:\Users\User\Desktop\klaud\CloudApp\GatewayService\bin\Debug\net7.0\win7-x64\SQLitePCLRaw.batteries_v2.dll
+C:\Users\User\Desktop\klaud\CloudApp\GatewayService\bin\Debug\net7.0\win7-x64\SQLitePCLRaw.provider.e_sqlite3.dll
+C:\Users\User\Desktop\klaud\CloudApp\GatewayService\bin\Debug\net7.0\win7-x64\e_sqlite3.dll
