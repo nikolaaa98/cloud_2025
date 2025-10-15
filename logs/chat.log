@@ -1,0 +1,14 @@
+Building...
+C:\Program Files\dotnet\sdk\8.0.317\Sdks\Microsoft.NET.Sdk\targets\Microsoft.NET.EolTargetFrameworks.targets(32,5): warning NETSDK1138: The target framework 'net7.0' is out of support and will not receive security updates in the future. Please refer to https://aka.ms/dotnet-core-support for more information about the support policy. [C:\Users\User\Desktop\klaud\CloudApp\ChatService\ChatService.csproj]
+C:\Program Files\dotnet\sdk\8.0.317\Sdks\Microsoft.NET.Sdk\targets\Microsoft.NET.EolTargetFrameworks.targets(32,5): warning NETSDK1138: The target framework 'net7.0' is out of support and will not receive security updates in the future. Please refer to https://aka.ms/dotnet-core-support for more information about the support policy. [C:\Users\User\Desktop\klaud\CloudApp\ChatService\ChatService.csproj]
+C:\Program Files\dotnet\sdk\8.0.317\Sdks\Microsoft.NET.Sdk\targets\Microsoft.NET.EolTargetFrameworks.targets(32,5): warning NETSDK1138: The target framework 'net7.0' is out of support and will not receive security updates in the future. Please refer to https://aka.ms/dotnet-core-support for more information about the support policy. [C:\Users\User\Desktop\klaud\CloudApp\ChatService\ChatService.csproj]
+C:\Program Files\dotnet\sdk\8.0.317\Sdks\Microsoft.NET.Sdk\targets\Microsoft.NET.RuntimeIdentifierInference.targets(251,5): warning NETSDK1201: For projects targeting .NET 8.0 and higher, specifying a RuntimeIdentifier will no longer produce a self contained app by default. To continue building self-contained apps, set the SelfContained property to true or use the --self-contained argument. [C:\Users\User\Desktop\klaud\CloudApp\ChatService\ChatService.csproj]
+Unhandled exception. System.Fabric.FabricConnectionDeniedException: Not authorized to connect
+ ---> System.Runtime.InteropServices.COMException (0x80071C43): 0x80071C43
+   at System.Fabric.Interop.NativeRuntime.FabricEndGetNodeContext(IFabricAsyncOperationContext context)
+   at System.Fabric.FabricRuntime.NativeFabricRuntimeFactory.GetNodeContextEndWrapper(IFabricAsyncOperationContext context)
+   at System.Fabric.Interop.AsyncCallOutAdapter2`1.Finish(IFabricAsyncOperationContext context, Boolean expectedCompletedSynchronously)
+   --- End of inner exception stack trace ---
+   at Microsoft.ServiceFabric.Services.Runtime.RuntimeContext.GetOrCreateAsync(TimeSpan timeout, CancellationToken cancellationToken)
+   at Microsoft.ServiceFabric.Services.Runtime.ServiceRuntime.RegisterServiceAsync(String serviceTypeName, Func`2 serviceFactory, TimeSpan timeout, CancellationToken cancellationToken)
+   at ChatService.Program.Main() in C:\Users\User\Desktop\klaud\CloudApp\ChatService\Program.cs:line 23

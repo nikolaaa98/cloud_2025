@@ -2,6 +2,7 @@
 using ChatService.Models;
 using ChatService.Services;
 using System;
+using System.Threading.Tasks;
 
 namespace ChatService.Controllers
 {
@@ -17,21 +18,24 @@ namespace ChatService.Controllers
         }
 
         [HttpPost("ask")]
-        public IActionResult Ask([FromBody] string question)
+        public IActionResult Ask([FromBody] ChatQuestionRequest request)
         {
+            if (string.IsNullOrEmpty(request?.Question))
+                return BadRequest("Question is required");
+
             // Ovde ide integracija sa LLM kasnije
-            var answer = $"Ovo je odgovor na: {question}";
+            var answer = $"Ovo je odgovor na: {request.Question}";
 
             var message = new ChatMessage
             {
-                Question = question,
+                Question = request.Question,
                 Answer = answer,
                 CreatedAt = DateTime.UtcNow
             };
 
             _db.SaveMessage(message);
 
-            return Ok(answer);
+            return Ok(new { Answer = answer });
         }
 
         [HttpGet("history")]
@@ -40,5 +44,10 @@ namespace ChatService.Controllers
             var messages = _db.GetAllMessages();
             return Ok(messages);
         }
+    }
+
+    public class ChatQuestionRequest
+    {
+        public string Question { get; set; }
     }
 }

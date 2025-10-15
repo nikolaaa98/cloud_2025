@@ -27,4 +27,10 @@
        independently-updateable and versioned set of custom configuration settings for your service. -->
   <ConfigPackage Name="Config" Version="1.0.0" />
 
+  <Resources>
+    <Endpoints>
+      <Endpoint Protocol="http" Name="ServiceEndpoint" Type="Input" Port="8951" />
+    </Endpoints>
+  </Resources>
+
 </ServiceManifest>
